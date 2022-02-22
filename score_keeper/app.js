@@ -24,6 +24,8 @@ function updateScores(player, opponent) {
             isGameOver = true;
             player.button.classList.add('is-light');
             opponent.button.classList.add('is-light');
+            player.button.classList.remove('is-primary');
+            opponent.button.classList.remove('is-primary');
             player.button.disabled = true;
             opponent.button.disabled = true;
             //p1Button.setAttribute("disabled");
@@ -62,5 +64,6 @@ function reset() {
         i.display.classList.remove('winner', 'loser');
         i.button.disabled = false;
         i.button.classList.remove('is-light');
+        i.button.classList.add('is-primary');
     }
 }
