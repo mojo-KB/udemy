@@ -19,6 +19,13 @@ p1Button.addEventListener('click', function() {
             player1.classList.add('winner');
             player2.classList.add('loser');
             isGameOver = true;
+            p1Button.classList.add('is-light');
+            p2Button.classList.add('is-light');
+            p1Button.disabled = true;
+            p2Button.disabled = true;
+            //p1Button.setAttribute("disabled");
+            //p2Button.setAttribute("disabled");
+
         }
         player1.textContent = p1Score;
     }
@@ -32,6 +39,14 @@ p2Button.addEventListener('click', () => {
             player2.classList.add('winner');
             player1.classList.add('loser');
             isGameOver = true;
+
+            p1Button.classList.add('is-light');
+            p2Button.classList.add('is-light');
+            p1Button.disabled = true;
+            p2Button.disabled = true;
+            //p1Button.setAttribute("disabled");
+            // p2Button.setAttribute("disabled");
+
         }
         player2.textContent = p2Score;
     }
@@ -55,4 +70,8 @@ function reset() {
     player2.textContent = p2Score;
     player1.classList.remove('winner', 'loser');
     player2.classList.remove('winner', 'loser');
+    p1Button.classList.remove('is-light');
+    p2Button.classList.remove('is-light');
+    p1Button.disabled = false;
+    p2Button.disabled = false;
 }
