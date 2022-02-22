@@ -26,6 +26,7 @@ function updateScores(player, opponent) {
             opponent.button.classList.add('is-light');
             player.button.disabled = true;
             opponent.button.disabled = true;
+
             //p1Button.setAttribute("disabled");
             //p2Button.setAttribute("disabled");
 
