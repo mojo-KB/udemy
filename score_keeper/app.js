@@ -28,6 +28,7 @@ function updateScores(player, opponent) {
             opponent.button.classList.remove('is-primary');
             player.button.disabled = true;
             opponent.button.disabled = true;
+
             //p1Button.setAttribute("disabled");
             //p2Button.setAttribute("disabled");
 
