@@ -1,6 +1,11 @@
 // bitcoin api: https://api.cryptonator.com/api/ticker/btc-usd
 
-fetch('https://docs.rapidapi.com/docs/keys')
+fetch('https://swapi.dev/api/people/1/', {
+        method: "GET",
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
     .then(response => {
         console.log('Responsed', response)
         return response.json()
