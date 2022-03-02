@@ -19,6 +19,24 @@ fetch('https://swapi.dev/api/people/1/', {
 
 
 
+fetch('https://icanhazdadjoke.com/', {
+        method: "GET",
+        headers: {
+            'Accept': 'Application/json'
+        }
+    })
+    .then(Respone => {
+        console.log("Accepted", Respone)
+        return Respone.json();
+    })
+    .then(data => {
+        console.log("Data parsed...", data)
+    })
+    .catch(e => {
+        console.log("Error!", e)
+    })
+
+
 
 // create a fetch function
 
