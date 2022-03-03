@@ -1,11 +1,8 @@
-import axios from 'axios';
-
-const axios = require('axios');
-
-axios.get('https://icanhazdadjoke.com/')
-    .then(response => {
-        console.log(response);
+axios({
+        method: 'get',
+        url: 'http://bit.ly/2mTM3nY',
+        responseType: 'stream'
     })
-    .catch(e => {
-        console.log(e);
-    })
+    .then(function(response) {
+        response.data.pipe(fs.createWriteStream('ada_lovelace.jpg'))
+    });
