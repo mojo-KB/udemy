@@ -1,8 +1,11 @@
 axios({
-        method: 'get',
-        url: 'http://bit.ly/2mTM3nY',
-        responseType: 'stream'
+        method: 'GET',
+        url: 'https://icanhazdadjoke.com/',
+        headers: {
+            'Accept': 'Application/json'
+        }
+        //responseType: 'stream'
     })
     .then(function(response) {
-        response.data.pipe(fs.createWriteStream('ada_lovelace.jpg'))
+        console.log(response);
     });
