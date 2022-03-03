@@ -2,7 +2,7 @@ axios({
         method: 'GET',
         url: 'https://icanhazdadjoke.com/',
         headers: {
-            'Accept': 'Application/json'
+            'Accept': 'Text/Plain'
         }
         //responseType: 'stream'
     })
