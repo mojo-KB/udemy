@@ -19,6 +19,7 @@ fetch('https://swapi.dev/api/people/1/', {
 
 
 
+<<<<<<< Updated upstream
 fetch('https://icanhazdadjoke.com/', {
         method: "GET",
         headers: {
@@ -37,6 +38,21 @@ fetch('https://icanhazdadjoke.com/', {
     })
 
 
+=======
+const loadJoke = async() => {
+    const request = await fetch('https://icanhazdadjoke.com/', {
+        method: "GET",
+        // header: {
+        //     'Accept': "application/json"
+        // }
+    });
+
+    const data = await request.json();
+    console.log(data);
+}
+
+loadJoke();
+>>>>>>> Stashed changes
 
 // create a fetch function
 
