@@ -18,7 +18,7 @@ const getDadJoke = async() => {
                 Accept: 'application/json'
             }
         }
-        const res = await axios.get('https://icanhazdadjoke.com/', config);
+        const res = await axios.get('https://icanhazdadjoke.com/2', config);
         return res.data.joke;
     } catch (e) {
         return `No Jokes founded ${e}`;
