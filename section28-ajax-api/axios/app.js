@@ -15,7 +15,7 @@ const response = async() => {
     try {
         let data = await axios({
             method: 'GET',
-            url: 'https://icanhazdadjoke.com/2',
+            url: 'https://icanhazdadjoke.com/',
             headers: {
                 'Accept': 'Application/Json'
             }
