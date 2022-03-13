@@ -10,8 +10,26 @@
 
 <body>
     <h1>
-        <%= Math.floor(Math.random() * 10) + 1%>
+        Your random number is:
+        <%=rand%>
     </h1>
+
+
+    <% if(rand % 2 === 0){ %>
+        <h2>This is an even number!</h2>
+        <% } else { %>
+            <h2>This is an odd number!</h2>
+            <% } %>
+                <div>
+                    <h3> Your number is </h3>
+                    <% if(rand % 2 === 0){ %>
+                        <h2>This is an even number!</h2>
+                        <% } else { %>
+                            <h2>This is an odd number!</h2>
+                            <% } %>
+                </div>
+
+
 
 </body>
 
