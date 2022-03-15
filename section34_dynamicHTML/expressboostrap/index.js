@@ -22,7 +22,10 @@ app.get('/', (req, res) => {
     res.render('home.ejs');
 })
 
-
+app.get('/rand', (req, res) => {
+    const rand = Math.random() * 10 + 1;
+    res.render('random.ejs', {rand})
+})
 
 app.get('/r/:subreddit', (req, res) => {
     // routing on /r and set the parameters that are started with :
