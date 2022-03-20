@@ -30,8 +30,14 @@ const comments = [
     }
 
 ]
+
+
 app.get('/comments', (req, res) => {
     res.render('comments/index', { comments });
+})
+
+app.get('/comments/new', (req, res) => {
+    res.render()
 })
 
 app.get('/tacos', (req, res) => {
