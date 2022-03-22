@@ -13,9 +13,17 @@
     <ul>
         <% for(let i of comments) { %>
             <li>
-                <%= i.comment %> <b> <%= i.username %> </b></li>
+                <%= i.comment %> <b> <%= i.username %> </b>
+
+                    <a href="/comments/<%= i.id %> ">details</a>
+
+                    <form method="POST" action="/comments/<%= i.id %>/?_method=DELETE ">
+                        <button>Delete</button>
+                    </form>
+            </li>
             <% } %>
     </ul>
+    <a href="/comments/new">New Comment</a>
 </body>
 
 </html>
