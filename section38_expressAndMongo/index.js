@@ -23,7 +23,13 @@ app.get('/products', async(req, res) => {
     res.render('products/index', { products });
 })
 
-
+// adding CRUD features to the web app
+app.get('/products/:id', async(req, res) => {
+    const { id } = req.params;
+    const product = await Product.findById(id);
+    console.log(product);
+    //res.send('details page!');
+})
 
 
 app.listen(8080, () => {
