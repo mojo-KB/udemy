@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
 const Product = require('./models/product');
+
 main().catch(err => {
     console.log("Error!")
     console.log(err)
@@ -15,6 +16,11 @@ async function main() {
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.use(express.urlencoded({
+    extended: true
+}))
+
+
 
 app.get('/products', async(req, res) => {
     const product = await Product.find({});
@@ -22,6 +28,23 @@ app.get('/products', async(req, res) => {
     // res.send("Succesfully connecting to database");
     res.render('products/index', { product });
 })
+
+app.get('/products/new', async(req, res) => {
+    res.render('products/new.ejs');
+})
+
+app.post('/products', async(req, res) => {
+    const newProduct = new Product(req.body);
+    await newProduct.save();
+    console.log(newProduct);
+
+    //console.log(req.body)
+    //res.send("Adding your product");
+
+    res.redirect(`/products/${newProduct._id}`)
+})
+
+
 
 // adding CRUD features to the web app
 app.get('/products/:id', async(req, res) => {
@@ -32,9 +55,6 @@ app.get('/products/:id', async(req, res) => {
     //res.send('details page!');
 })
 
-app.get('/products/new', (req, res) => {
-    res.render('products/new');
-})
 
 
 app.listen(8080, () => {
