@@ -45,6 +45,12 @@ app.post('/products', async(req, res) => {
 })
 
 
+app.get('/products/:id/edit', async(req, res) => {
+    const product = await Product.findById(id);
+    res.render('products/edit', { product });
+
+})
+
 
 // adding CRUD features to the web app
 app.get('/products/:id', async(req, res) => {

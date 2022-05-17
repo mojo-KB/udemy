@@ -10,9 +10,9 @@
 
 <body>
     <h1>Edit product</h1>
-    <form action="/products" method="POST">
+    <form action="/products/<%= product._id %> " method="POST">
         <label for="name">Product Name</label>
-        <input type="text" name="name" id="name" placeholder="Enter a product name">
+        <input type="text" name="name" id="name" placeholder="Enter a product name " value="">
 
         <label for="price">Price</label>
         <input type="number" name="price" id="price" placeholder="Enter the pirce">
