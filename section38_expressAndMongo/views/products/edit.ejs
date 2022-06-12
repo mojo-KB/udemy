@@ -10,12 +10,12 @@
 
 <body>
     <h1>Edit product</h1>
-    <form action="/products/<%= product._id %> " method="POST">
+    <form action="/products/<%= product._id %>?_method=PUT" method="POST">
         <label for="name">Product Name</label>
-        <input type="text" name="name" id="name" placeholder="Enter a product name " value="">
+        <input type="text" name="name" id="name" placeholder="Enter a product name " value="<%= product.name %> ">
 
         <label for="price">Price</label>
-        <input type="number" name="price" id="price" placeholder="Enter the pirce">
+        <input type="number" name="price" id="price" placeholder="Enter the pirce" value="<%= product.price %>">
 
         <label for="category">Select Category</label>
         <select name="category" id="category">
