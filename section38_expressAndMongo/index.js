@@ -15,6 +15,25 @@ async function main() {
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.use(express.urlencoded({
+    extended: true
+}))
+
+
+
+app.get('/products/new', (req, res) => {
+    res.render('products/new');
+})
+app.post('/products', async(req, res) => {
+    //console.log(req.body);
+    const newProduct = new Product(req.body);
+
+    // after we are waiting for inputs, newProduct.save() will push data to the database
+    await newProduct.save();
+    res.send('Making your product');
+})
+
+
 
 app.get('/products', async(req, res) => {
     const product = await Product.find({});
@@ -31,11 +50,6 @@ app.get('/products/:id', async(req, res) => {
     res.render('products/show.ejs', { product });
     //res.send('details page!');
 })
-
-app.get('/products/new', (req, res) => {
-    res.render('products/new');
-})
-
 
 app.listen(8080, () => {
     console.log("Listening on port 8080");
