@@ -51,6 +51,9 @@ app.get('/products/:id', async(req, res) => {
     //res.send('details page!');
 })
 
+app.get('products/:id/edit', async(req, res) => {
+    res.render('products/edit')
+})
 app.listen(8080, () => {
     console.log("Listening on port 8080");
 })
