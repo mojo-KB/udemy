@@ -3,6 +3,8 @@ const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
 const Product = require('./models/product');
+const methodOverride = require('method-override');
+
 main().catch(err => {
     console.log("Error!")
     console.log(err)
@@ -13,11 +15,13 @@ async function main() {
     await mongoose.connect('mongodb://localhost:27017/farmStand');
 }
 
+// middleware
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({
     extended: true
 }))
+app.use(methodOverride('_method'));
 
 
 
@@ -51,8 +55,19 @@ app.get('/products/:id', async(req, res) => {
     //res.send('details page!');
 })
 
-app.get('products/:id/edit', async(req, res) => {
-    res.render('products/edit')
+app.get('/products/:id/edit', async(req, res) => {
+    const { id } = req.params;
+    const product = await Product.findById(id);
+    res.render('products/edit', { product });
+
+})
+
+app.put('/products/:id', async(req, res) => {
+    const { id } = req.params;
+    const product = Product.findByIdAndUpdate(id, req.body, { runValidators: true, new: true });
+    // res.send("PUT!!!");
+    res.redirect(`/products/${product_.id}`);
+    console.log(req.body);
 })
 app.listen(8080, () => {
     console.log("Listening on port 8080");
